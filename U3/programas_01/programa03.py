@@ -33,4 +33,46 @@ import math
 def calcular_area_circulo(radio):
     area=math.pi*math.pow(radio,2)
     return area
-def calcular_area_triangulo()
+def calcular_area_triangulo(base, altura):
+    area=(base*altura)/2
+    return area
+def calcular_area_rectangulo(base, altura):
+    area=base*altura
+    return area
+def mostrar_menu():
+    print("1. Calcular el área de un círculo\n")
+    print("2. Calcular el área de un triángulo\n")
+    print("3. Calcular el área de un rectángulo\n")
+    print("4. Salir\n")
+print("Introduzca un número: ")
+mostrar_menu()
+menu=0
+menu=int(input())
+if(menu==1):
+    radio=0
+    while(radio<=0):
+        print("Introduzca un radio válido: ")
+        radio=float(input())
+    print(calcular_area_circulo(radio))
+elif(menu==2):
+    base=0
+    altura=0
+    while(base<=0):
+        print("Introduzca una base válida: ")
+        base=float(input())
+    while(altura<=0):
+        print("Introduzca una altura válida: ")
+        altura=float(input())
+    print(calcular_area_triangulo(base, altura))
+elif(menu==3):
+    base=0
+    altura=0
+    while(base<=0):
+        print("Introduzca una base válida: ")
+        base=float(input())
+    while(altura<=0):
+        print("Introduzca una altura válida: ")
+        altura=float(input())
+    print(calcular_area_rectangulo(base, altura))
+elif(menu==4):
+    print("Fin del programa")
