@@ -5,3 +5,14 @@
 # Salida: No tiene parámetros de salida.
 # Funcionalidad: Imprime por pantalla un mensaje saludando a la persona en función
 # de los parámetros de entrada.
+
+print("Introduzca su nombre: ")
+nombre=input()
+print("Introduzca su primer apellido: ")
+apellido=input()
+print("Introduzca su segundo apellido: ")
+apellido2=input()
+def saludar(nombre, apellido, apellido2):
+    print(nombre,apellido,apellido2)
+
+saludar(nombre,apellido,apellido2)
