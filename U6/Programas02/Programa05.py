@@ -1,21 +1,13 @@
-#Amplía la clase AnimalTerrestre:
-# Implementa __str__(self) en la clase padre y las clases hijas para que
-# print(animal) muestre algo como:
-# AnimalTerrestre(nombre='Kuma',edad=5, peso=120.0)
-# Mamífero(nombre='Kuma',edad=5, peso=120.0)
-# Implementa un método mágico de comparación, por ejemplo: def
-# lt__(self, otro) teniendo en cuenta que un animal es 'menor' que otro
-# si su edad es menor.
-# Implementa __add__(self, otro) que devuelva un nuevo animal que
-# combine a dos:
-# nombre: concatenación de nombres ("Kuma-Balto")
-# edad: media de ambas edades (entera o float, como prefieras)
-# peso: suma de los pesos (si existen, si no, None).
+#Basándote en los programas anteriores, crea:
+# Clase Manada con:
+# Atributos de instancia: lista_animales.
+# Constructor __init__(self, lista_animales)
+# Métodos añadir(animal).
+# Implementa iter() y next() para iterar la manada animal por animal.
 # Crea una función main que:
-# Cree varios animales, mamiferos y aves con edad y peso.
-# Los compare con < (por ejemplo, animal1 < animal2).
-# Cree un “animal combinado” con animal3 = animal1 + animal2 y lo
-# muestre con print(animal3).
+# Cree una manada.
+# Añada tres animales (de cualquier tipo)
+# Recorra la manada con un for.
 
 class AnimalTerrestre:
     
@@ -68,7 +60,9 @@ class AnimalTerrestre:
         return self.edad < otro.edad
     
     def __add__(self, otro):
-        return AnimalTerrestre(self.nombre + "-" + otro.nombre,(self.edad + otro.edad)/2, self.peso + otro.peso)  
+        return AnimalTerrestre(self.nombre + "-" + otro.nombre,(self.edad + otro.edad)/2, self.peso + otro.peso)
+
+
     
      
 class Mamifero(AnimalTerrestre):
@@ -117,20 +111,47 @@ class Ave(AnimalTerrestre):
 
     def __str__(self):
          return f"Ave(nombre={self.nombre}, edad={self.edad}, peso={self.peso}, puede_volar={self.__puede_volar})"
-                            
-try:
+    
+class Manada:
+    def __init__(self, lista_animales=None):
+        self.__lista_animales = lista_animales if lista_animales is not None else []
 
-    animal1 = AnimalTerrestre("Kuma",10, 100)
-    animal2 = AnimalTerrestre("Miu", 5,  6)
-    animal3 = Mamifero("Log", 10, 90, 200)
-    animal4 = Ave("Uff", 4, 3, False)
+    def agregar_animal(self, animal):
+        if isinstance(animal, AnimalTerrestre):
+            self.__animales.append(animal)
+        else:
+            raise TypeError("Solo se pueden agregar animales")
+        
+    def __iter__(self):
+        self._index = 0
+        return self
+    
+    def __next__(self):
+        if self._index < len(self.__lista_animales):
+            animal = self.__lista_animales[self._index]
+            self._index += 1
+            return animal
+        else:
+            raise StopIteration
 
-    print(animal1 < animal2)
-    print(animal2 < animal3)
+def main():
+    try:
 
-    animal5 = animal1 + animal2
-    print(animal5) 
+        animal1 = AnimalTerrestre("Kuma",10, 100)
+        animal2 = AnimalTerrestre("Miu", 5,  6)
+        animal3 = Mamifero("Log", 10, 90, 200)
+        animal4 = Ave("Uff", 4, 3, False)
 
+        print(animal1 < animal2)
+        print(animal2 < animal3)
 
-except Exception as e:
-    print(e)
+        animal5 = animal1 + animal2
+        print(animal5) 
+        manada = Manada([animal1, animal2, animal3, animal4])
+        for animal in manada:
+            print(animal)
+
+    except Exception as e:
+        print(e)
+if __name__ == "__main__":
+    main()

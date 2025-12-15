@@ -71,18 +71,21 @@ class Tiburon(AnimalMarino):
     def sonido(self):
         print("No tiene un sonido audible característico")
 
+def main():
+    try:
 
-try:
+        animal1 = Delfin("Flipper")
+        animal2 = Tiburon("Tiburon Blanco")
+        animal3 = Delfin("Alex")
+        animal4 = Tiburon("Mai")
 
-    animal1 = Delfin("Flipper")
-    animal2 = Tiburon("Tiburon Blanco")
-    animal3 = Delfin("Alex")
-    animal4 = Tiburon("Mai")
+        animales=[animal1, animal2, animal3, animal4]
+        for animal in animales:
+            animal.saluda()
+            animal.sonido()
 
-    animales=[animal1, animal2, animal3, animal4]
-    for animal in animales:
-        animal.saluda()
-        animal.sonido()
+    except Exception as e:
+        print(e)
 
-except Exception as e:
-    print(e)
+if __name__ == "__main__":
+    main()

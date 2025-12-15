@@ -60,16 +60,7 @@ class AnimalTerrestre:
             self.__peso=nuevo_peso
         
     def saluda(self):
-        print(f"Soy un animal terrestre llamado {self.nombre} y tengo {self.edad} años ")
-
-    def __str__(self):
-        return f"AnimalTerrestre(nombre={self.nombre}, edad={self.edad}, peso={self.peso})"
-
-    def __lt__(self, otro):
-        return self.edad < otro.edad
-    
-    def __add__(self, otro):
-        return AnimalTerrestre(self.nombre + "-" + otro.nombre,self.edad + otro.edad, self.peso + otro.peso)    
+        print(f"Soy un animal terrestre llamado {self.nombre} y tengo {self.edad} años ")  
     
      
 class Mamifero(AnimalTerrestre):
@@ -92,9 +83,6 @@ class Mamifero(AnimalTerrestre):
     def saluda(self):
         print(f"Soy un mamimefero llamado {self.nombre}, tengo {self.edad} años  y mi gestación es de {self.__gestacion_dias}")
 
-    def __str__(self):
-         return f"Mamifero(nombre={self.nombre}, edad={self.edad}, peso={self.peso}, gestacion_dias={self.__gestacion_dias})"
-
 class Ave(AnimalTerrestre):
 
     def __init__(self, nombre, edad, peso, puede_volar):
@@ -115,9 +103,6 @@ class Ave(AnimalTerrestre):
             print(" y puedo volar")
         else:
             print(" y no puedo volar")
-
-    def __str__(self):
-         return f"Ave(nombre={self.nombre}, edad={self.edad}, peso={self.peso}, puede_volar={self.__puede_volar})"
 
 try:
 
