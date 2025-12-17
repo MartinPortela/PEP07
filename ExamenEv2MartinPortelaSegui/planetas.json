@@ -1,0 +1,17 @@
+[
+    {
+        "Nombre": "Marte",
+        "Tipo": "Rocoso",
+        "Lunas": 2
+    },
+    {
+        "Nombre": "Júpiter",
+        "Tipo": "Gaseoso",
+        "Lunas": 79
+    },
+    {
+        "Nombre": "Venus",
+        "Tipo": "Rocoso",
+        "Lunas": 0
+    }
+]
