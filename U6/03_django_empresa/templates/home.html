@@ -1,0 +1,12 @@
+<!-- templates/home.html -->
+{% extends "base.html" %} {% block content %}
+<h1>Página inicial de la empresa</h1>
+<p>La fecha y la hora actual son: {% now "DATETIME_FORMAT" %}</p>
+<p>Hay {{ lista_inventario|length }} productos de inventario.</p>
+<ul>
+  {% for item in lista_inventario %}
+  <li>{{ item }}</li>
+  {% endfor %}
+</ul>
+<p>{{ Saludo| title }}</p>
+{% comment %}Esto es un comentario!{% endcomment %} {% endblock %}
