@@ -1,0 +1,7 @@
+<!-- templates/lista_publicaciones.html -->
+<h1>Publicaciones del tablón de mensajes</h1>
+<ul>
+  {% for publicacion in publicacion_list %}
+  <li>{{ publicacion.texto }}</li>
+  {% endfor %}
+</ul>
